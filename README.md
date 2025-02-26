@@ -1,16 +1,50 @@
-# access_checkout_flutter_demo
+# Access Checkout Flutter Application Demo
 
-A new Flutter project.
+This project leverages the Access Worldpay android and Access Worldpay iOS Native SDKs, to provide a way of integrating
+Worldpay Access Checkout into a Flutter application using Native views PlatformView for Android and UIKit for iOS.
+
+*_As Worldpay and Flutter evolve things may have changed so please refer to_ [_Worldpay Access
+Checkout_](https://developer.worldpay.com/products/access/checkout) and  [_Flutter_](https://flutter.dev/docs)_,
+for any questions or clarifications._*
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## Preparing your local environment
 
-A few resources to get you started if this is your first Flutter project:
+*_First install or upgrade to the latest version of Flutter. Follow these installation_ [
+_guides_ ](https://flutter.dev/docs/get-started/install)*
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+For this Demo, it is recommended to use Android Studio as you code editor, which can be
+downloaded [here](https://developer.android.com/studio/).
+To complete the iOS deployment steps you will also need to have [Xcode](https://developer.apple.com/xcode/) installed.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You will also need set up:
+
+- an [iOS simulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-ios-simulator) as well as
+- an [Android emulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-android-emulator).
+
+## Running the application
+
+### Running on Android
+
+#### 1. Running The simulator
+
+Start an android emulator with a `minSdkVersion` of `26`
+
+#### 2. Running the application
+
+```shell
+flutter run
+```
+
+### Running on Android
+
+#### 1. Running The simulator
+
+Start an ios simulator
+
+#### 2. Running the application
+
+```shell
+flutter run
+```
