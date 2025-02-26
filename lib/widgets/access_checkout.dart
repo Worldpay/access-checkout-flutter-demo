@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class AccessCheckoutWidget extends StatefulWidget {
   final String checkoutId;
   final String baseUrl;
+  final bool useCardValidation;
 
   const AccessCheckoutWidget({
     super.key,
     required this.checkoutId,
     required this.baseUrl,
+    required this.useCardValidation,
   });
 
   @override
@@ -17,16 +19,24 @@ class AccessCheckoutWidget extends StatefulWidget {
 }
 
 class AccessCheckoutWidgetState extends State<AccessCheckoutWidget> {
-  bool isInitialized = false;
+  bool isSubmitButtonEnabled = false;
   String sessionToken = "";
   late String checkoutId;
   late String baseUrl;
+  late bool useCardValidation;
 
   @override
   void initState() {
     super.initState();
     checkoutId = widget.checkoutId;
     baseUrl = widget.baseUrl;
+    useCardValidation = widget.useCardValidation;
+
+    AccessCheckoutFlutter.listenForValidationUpdates((isInputValid) {
+      setState(() {
+        isSubmitButtonEnabled = isInputValid;
+      });
+    });
   }
 
   @override
@@ -38,19 +48,21 @@ class AccessCheckoutWidgetState extends State<AccessCheckoutWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 350,
-                  height: 150,
-                  child: AccessCheckoutNativeWidget(
-                      checkoutId: checkoutId, baseUrl: baseUrl), //Container),
-                ),
+                    width: 350,
+                    height: 150,
+                    child: AccessCheckoutNativeWidget(
+                        checkoutId: checkoutId,
+                        baseUrl: baseUrl,
+                        useCardValidation: useCardValidation)),
                 Row(children: <Widget>[
                   Expanded(
-                      child: ElevatedButton(
-                        child: const Text('Submit'),
-                        onPressed: () async {
-                          await generateSession();
-                        },
-                      ))
+                    child: OutlinedButton(
+                      onPressed: isSubmitButtonEnabled
+                          ? () => generateSession()
+                          : null,
+                      child: const Text('Submit'),
+                    ),
+                  )
                 ]),
                 if (sessionToken != "") Text(sessionToken),
               ],

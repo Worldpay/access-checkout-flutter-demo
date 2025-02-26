@@ -7,11 +7,13 @@ import 'package:flutter/services.dart';
 class AccessCheckoutNativeWidget extends StatelessWidget {
   final String checkoutId;
   final String baseUrl;
+  final bool useCardValidation;
 
   const AccessCheckoutNativeWidget({
     super.key,
     required this.checkoutId,
     required this.baseUrl,
+    required this.useCardValidation,
   });
 
   static const StandardMessageCodec _decoder = StandardMessageCodec();
@@ -19,9 +21,10 @@ class AccessCheckoutNativeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const String viewType = "com.worldpay.plugins/accesscheckoutview";
-    final Map<String, String> creationParams = <String, String>{
+    final Map<String, dynamic> creationParams = <String, dynamic>{
       "baseUrl": baseUrl,
       "checkoutId": checkoutId,
+      "useCardValidation": useCardValidation
     };
 
     switch (defaultTargetPlatform) {

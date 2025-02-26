@@ -16,6 +16,7 @@ class AccessCheckoutViewFactory(
 
     override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
         val methodChannel = MethodChannel(messenger, channel)
-        return AccessCheckoutView(lifecycleOwner, context, methodChannel, args as Map<String, String>)
+        val creationParams: Map<String, Any> = args as Map<String, Any>
+        return AccessCheckoutView(lifecycleOwner, methodChannel, context, creationParams)
     }
 }

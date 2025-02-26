@@ -3,20 +3,14 @@ import 'package:flutter/services.dart';
 class AccessCheckoutFlutter {
   static const channel = MethodChannel('AccessCheckoutSDK');
 
-  static Future<void> initialiseCardValidation({
-    panId,
-    expiryDateId,
-    cvcId,
-  }) async {
-    var dataToPass = <String, String>{
-      "baseUrl": "https://",
-      "merchantId": "flutter-god",
-      "panId": panId,
-      "expiryDateId": expiryDateId,
-      "cvcId": cvcId,
-    };
+  static Future<void> listenForValidationUpdates(Function(bool) onValidationUpdated) async {
+    channel.setMethodCallHandler((call) async {
+      if (call.method case "onValidationUpdated") {
+        onValidationUpdated(call.arguments as bool);
+      }
+    });
 
-    await channel.invokeMethod<String>('initialiseCardValidation', dataToPass);
+    await channel.invokeMethod<String>('generateSession');
   }
 
   static Future<void> generateSession(
