@@ -57,18 +57,4 @@ class AccessCheckoutNativeWidget extends StatelessWidget {
         throw new UnsupportedError("Unsupported platform view");
     }
   }
-
-  //TODO: Receive events via method channel
-  Map getParams(String nativeID,
-      String? placeholder,) {
-    final Map<String, dynamic> params = {
-      "nativeID": nativeID,
-    };
-
-    if (placeholder != null) {
-      params.putIfAbsent("placeholder", () => placeholder);
-    }
-
-    return params;
-  }
 }
