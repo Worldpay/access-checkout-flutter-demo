@@ -20,7 +20,7 @@ class AccessCheckoutNativeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String viewType = "com.worldpay.plugins/accesscheckoutview";
+    const String viewType = "com.worldpay.flutter/accesscheckout";
     final Map<String, dynamic> creationParams = <String, dynamic>{
       "baseUrl": baseUrl,
       "checkoutId": checkoutId,
@@ -55,7 +55,12 @@ class AccessCheckoutNativeWidget extends StatelessWidget {
     },
   );
       case TargetPlatform.iOS:
-        throw new UnsupportedError("Unsupported platform view");
+        return UiKitView(
+          viewType: viewType,
+          layoutDirection: TextDirection.ltr,
+          creationParams: creationParams,
+          creationParamsCodec: const StandardMessageCodec(),
+        );
       default:
         throw new UnsupportedError("Unsupported platform view");
     }

@@ -5,7 +5,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 
 class MainActivity : FlutterActivity() {
-    private val METHOD_CHANNEL_NAME = "AccessCheckoutSDK"
+    private val METHOD_CHANNEL_NAME = "com.worldpay.flutter/accesscheckout"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -15,7 +15,7 @@ class MainActivity : FlutterActivity() {
 
         registry
             .registerViewFactory(
-                "com.worldpay.plugins/accesscheckoutview",
+                "com.worldpay.flutter/accesscheckout",
                 AccessCheckoutViewFactory(
                     flutterEngine.dartExecutor.binaryMessenger,
                     METHOD_CHANNEL_NAME,
@@ -23,5 +23,4 @@ class MainActivity : FlutterActivity() {
                 )
             )
     }
-
 }

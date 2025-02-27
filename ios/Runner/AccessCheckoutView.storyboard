@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4DF-1J-Ijr">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                <subviews>
+                                    <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="YbB-dW-htW" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OON-bc-pq5">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="50"/>
+                                        <subviews>
+                                            <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="F2y-Hd-hYc" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
+                                                <rect key="frame" x="0.0" y="0.0" width="336" height="50"/>
+                                            </view>
+                                            <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="m27-5k-903" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
+                                                <rect key="frame" x="336" y="0.0" width="57" height="50"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="m27-5k-903" firstAttribute="leading" secondItem="OON-bc-pq5" secondAttribute="leading" constant="336" id="Rff-YK-vs9"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstItem="OON-bc-pq5" firstAttribute="top" secondItem="4DF-1J-Ijr" secondAttribute="top" constant="50" id="h0W-ZT-Ktr"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4DF-1J-Ijr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="A1P-0n-IE7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="4DF-1J-Ijr" secondAttribute="bottom" constant="718" id="XoN-PW-Lno"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4DF-1J-Ijr" secondAttribute="trailing" id="g1o-mt-8uA"/>
+                            <constraint firstItem="4DF-1J-Ijr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="xFe-7D-f4S"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

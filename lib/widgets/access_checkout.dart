@@ -32,11 +32,17 @@ class AccessCheckoutWidgetState extends State<AccessCheckoutWidget> {
     baseUrl = widget.baseUrl;
     useCardValidation = widget.useCardValidation;
 
-    AccessCheckoutFlutter.listenForValidationUpdates((isInputValid) {
-      setState(() {
-        isSubmitButtonEnabled = isInputValid;
+    if (useCardValidation) {
+      AccessCheckoutFlutter.listenForValidationUpdates((isInputValid) {
+        setState(() {
+          isSubmitButtonEnabled = isInputValid;
+        });
       });
-    });
+    } else {
+      setState(() {
+        isSubmitButtonEnabled = true;
+      });
+    }
   }
 
   @override
