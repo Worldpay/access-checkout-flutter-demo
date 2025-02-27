@@ -1,65 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <!--Card Flow-->
+        <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="AccessCheckoutViewController" customModule="Runner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hy8-fq-jdj"/>
+                        <viewControllerLayoutGuide type="bottom" id="P4U-sM-I5g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4DF-1J-Ijr">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                <subviews>
-                                    <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="YbB-dW-htW" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OON-bc-pq5">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="50"/>
-                                        <subviews>
-                                            <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="F2y-Hd-hYc" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
-                                                <rect key="frame" x="0.0" y="0.0" width="336" height="50"/>
-                                            </view>
-                                            <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="m27-5k-903" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
-                                                <rect key="frame" x="336" y="0.0" width="57" height="50"/>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="m27-5k-903" firstAttribute="leading" secondItem="OON-bc-pq5" secondAttribute="leading" constant="336" id="Rff-YK-vs9"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOE-eK-LJK" userLabel="Pan" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
+                                <rect key="frame" x="16" y="20" width="327" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pan" label="Pan">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstItem="OON-bc-pq5" firstAttribute="top" secondItem="4DF-1J-Ijr" secondAttribute="top" constant="50" id="h0W-ZT-Ktr"/>
+                                    <constraint firstAttribute="height" constant="44" id="Olc-Mj-W5U"/>
                                 </constraints>
-                            </stackView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Card Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ts8-Kj-GhN" userLabel="Expiry date" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
+                                <rect key="frame" x="16" y="72" width="164" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="expiryDate" label="Expiry date">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="1K6-wM-DAF"/>
+                                    <constraint firstAttribute="height" constant="44" id="Ute-5x-z9t"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Expiry Date"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-yr-qYy" userLabel="Cvc" customClass="AccessCheckoutUITextField" customModule="AccessCheckoutSDK">
+                                <rect key="frame" x="223" y="72" width="120" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cvc" label="Cvc">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0Pc-45-INQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="CVC"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4DF-1J-Ijr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="A1P-0n-IE7"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="4DF-1J-Ijr" secondAttribute="bottom" constant="718" id="XoN-PW-Lno"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4DF-1J-Ijr" secondAttribute="trailing" id="g1o-mt-8uA"/>
-                            <constraint firstItem="4DF-1J-Ijr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="xFe-7D-f4S"/>
+                            <constraint firstItem="ts8-Kj-GhN" firstAttribute="top" secondItem="A4Q-yr-qYy" secondAttribute="top" id="5Cc-Zm-iER"/>
+                            <constraint firstItem="ts8-Kj-GhN" firstAttribute="top" secondItem="uOE-eK-LJK" secondAttribute="bottom" constant="8" id="ExN-ri-CWS"/>
+                            <constraint firstItem="ts8-Kj-GhN" firstAttribute="bottom" secondItem="A4Q-yr-qYy" secondAttribute="bottom" id="HeA-VK-iPK"/>
+                            <constraint firstItem="uOE-eK-LJK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JNk-u6-HOu"/>
+                            <constraint firstItem="A4Q-yr-qYy" firstAttribute="leading" secondItem="ts8-Kj-GhN" secondAttribute="trailing" constant="43" id="Nhx-HB-abn"/>
+                            <constraint firstItem="ts8-Kj-GhN" firstAttribute="leading" secondItem="uOE-eK-LJK" secondAttribute="leading" id="Tct-QG-Q6u"/>
+                            <constraint firstItem="uOE-eK-LJK" firstAttribute="top" secondItem="hy8-fq-jdj" secondAttribute="bottom" id="j3z-EI-P6a"/>
+                            <constraint firstAttribute="trailing" secondItem="A4Q-yr-qYy" secondAttribute="trailing" constant="32" id="jnm-R8-NOg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uOE-eK-LJK" secondAttribute="trailing" constant="16" id="noD-9L-4qa"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Card Flow" image="creditcard" catalog="system" id="m9y-Ux-VVN"/>
+                    <connections>
+                        <outlet property="cvcInput" destination="A4Q-yr-qYy" id="N9y-q9-Abt"/>
+                        <outlet property="expiryInput" destination="ts8-Kj-GhN" id="V4f-nQ-htV"/>
+                        <outlet property="panInput" destination="uOE-eK-LJK" id="uvL-eo-qJW"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="4"/>
+            <point key="canvasLocation" x="-698.39999999999998" y="831.63418290854577"/>
         </scene>
     </scenes>
     <resources>
+        <image name="creditcard" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
