@@ -23,7 +23,25 @@ You will also need set up:
 - an [iOS simulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-ios-simulator) as well as
 - an [Android emulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-android-emulator).
 
+
+## Changing the Checkout ID used by the application
+
+Change the Checkout ID in the `lib/screens/native_sdk_page.dart` and `web_sdk_page.dart` files.
+
+## Changing the URL of Access Checkout used by the application
+
+- for native integration, change the baseUrl in `lib/screens/native_sdk_page.dart`.
+- for web integration, change the script url in `iframe-content/form.html`.
+
 ## Running the application
+
+### Start the node server that serves the Web SDK integration HTML content
+
+```bash
+cd iframe-content
+npm install
+node server.js
+```
 
 ### Running on Android
 
@@ -37,7 +55,7 @@ Start an android emulator with a `minSdkVersion` of `26`
 flutter run
 ```
 
-### Running on Android
+### Running on iOS
 
 #### 1. Running The simulator
 
