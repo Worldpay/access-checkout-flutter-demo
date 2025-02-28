@@ -8,7 +8,7 @@ class WebSdkPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: AccessCheckoutWebWidget(
-          iframeBaseUrl: "http://localhost:3000/form.html",
+          iframeBaseUrl: "http://10.0.2.2:3000/form.html",
           checkoutId: "00000000-0000-0000-0000-000000000000"
       ),
     );
