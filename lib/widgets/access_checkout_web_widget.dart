@@ -28,6 +28,7 @@ class _WebViewState extends State<AccessCheckoutWebWidget> {
     iframeBaseUrl = widget.iframeBaseUrl;
 
     controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..addJavaScriptChannel(
         'flutterWebView',
         onMessageReceived: (dynamic message) {
@@ -64,7 +65,7 @@ class _WebViewState extends State<AccessCheckoutWebWidget> {
               children: [
                 SizedBox(
                     width: 400,
-                    height: 400,
+                    height: 450,
                     child: WebViewWidget(controller: controller)
                 ),
                 if (sessionToken != "") Text(sessionToken),

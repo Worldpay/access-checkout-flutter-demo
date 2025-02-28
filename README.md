@@ -45,11 +45,17 @@ node server.js
 
 ### Running on Android
 
-#### 1. Running The simulator
+#### 1. Running The emulator
 
 Start an android emulator with a `minSdkVersion` of `26`
 
-#### 2. Running the application
+#### 2. Preparing the Web SDK view
+
+Change in the `web_sdk_page.dart` file:
+- the iframeBaseUrl to `http://localhost:3000/form.html` so that the Web integration works correctly
+- refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a valid checkoutID
+
+#### 3. Running the application
 
 ```shell
 flutter run
@@ -61,7 +67,13 @@ flutter run
 
 Start an ios simulator
 
-#### 2. Running the application
+#### 2. Preparing the Web SDK view
+
+Change in the `web_sdk_page.dart` file:
+- the iframeBaseUrl to `http://10.0.2.2:3000/form.html` so that the Web integration works correctly
+- refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a valid checkoutID
+
+#### 3. Running the application
 
 ```shell
 flutter run
