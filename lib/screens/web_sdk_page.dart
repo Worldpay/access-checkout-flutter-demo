@@ -1,3 +1,4 @@
+import 'package:access_checkout_flutter_demo/widgets/access_checkout_web_widget.dart';
 import 'package:flutter/material.dart';
 
 class WebSdkPage extends StatelessWidget {
@@ -6,9 +7,9 @@ class WebSdkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Icon(
-        Icons.edit,
-        color: Color(0xFFD50000),
+      child: AccessCheckoutWebWidget(
+          iframeBaseUrl: "http://localhost:3000/form.html",
+          checkoutId: "00000000-0000-0000-0000-000000000000"
       ),
     );
   }
