@@ -78,3 +78,10 @@ Change in the `web_sdk_page.dart` file:
 ```shell
 flutter run
 ```
+
+### Podfile for iOS
+
+The `flutter create` command does not generate any `Podfile`.
+That file is needed and requires specific code for the `webview_flutter` package to be able to source the `webview_flutter_wkwebview` dependency.
+
+You can file [an example Podfile in the example application](https://github.com/flutter/packages/blob/main/packages/webview_flutter/webview_flutter/example/ios/Podfile) available in the `webview_flutter` package under the flutter repository:

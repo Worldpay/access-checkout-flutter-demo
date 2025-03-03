@@ -7,10 +7,10 @@ class WebSdkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      // child: AccessCheckoutWebWidget(
-      //     iframeBaseUrl: "http://localhost:3000/form.html",
-      //     checkoutId: "00000000-0000-0000-0000-000000000000"
-      // ),
+      child: AccessCheckoutWebWidget(
+          iframeBaseUrl: "http://localhost:3000/form.html",
+          checkoutId: "00000000-0000-0000-0000-000000000000"
+      ),
     );
   }
 }
