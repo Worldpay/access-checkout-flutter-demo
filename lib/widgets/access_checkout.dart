@@ -32,11 +32,17 @@ class AccessCheckoutWidgetState extends State<AccessCheckoutWidget> {
     baseUrl = widget.baseUrl;
     useCardValidation = widget.useCardValidation;
 
-    AccessCheckoutFlutter.listenForValidationUpdates((isInputValid) {
-      setState(() {
-        isSubmitButtonEnabled = isInputValid;
+    if (useCardValidation) {
+      AccessCheckoutFlutter.listenForValidationUpdates((isInputValid) {
+        setState(() {
+          isSubmitButtonEnabled = isInputValid;
+        });
       });
-    });
+    } else {
+      setState(() {
+        isSubmitButtonEnabled = true;
+      });
+    }
   }
 
   @override
@@ -48,7 +54,6 @@ class AccessCheckoutWidgetState extends State<AccessCheckoutWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                    width: 350,
                     height: 150,
                     child: AccessCheckoutNativeWidget(
                         checkoutId: checkoutId,
@@ -56,6 +61,7 @@ class AccessCheckoutWidgetState extends State<AccessCheckoutWidget> {
                         useCardValidation: useCardValidation)),
                 Row(children: <Widget>[
                   Expanded(
+                    flex: 1,
                     child: OutlinedButton(
                       onPressed: isSubmitButtonEnabled
                           ? () => generateSession()

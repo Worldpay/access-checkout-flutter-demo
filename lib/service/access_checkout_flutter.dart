@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 
 class AccessCheckoutFlutter {
-  static const channel = MethodChannel('AccessCheckoutSDK');
+  static const channel = MethodChannel('com.worldpay.flutter/accesscheckout');
 
   static Future<void> listenForValidationUpdates(Function(bool) onValidationUpdated) async {
     channel.setMethodCallHandler((call) async {
@@ -9,8 +9,6 @@ class AccessCheckoutFlutter {
         onValidationUpdated(call.arguments as bool);
       }
     });
-
-    await channel.invokeMethod<String>('generateSession');
   }
 
   static Future<void> generateSession(
@@ -23,9 +21,6 @@ class AccessCheckoutFlutter {
 
         case "onSessionError":
           onError(call.arguments);
-
-        default:
-          print("Unknown Event: ${call.method}");
       }
     });
 
