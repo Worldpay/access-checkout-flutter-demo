@@ -62,7 +62,7 @@ class AccessCheckoutNativeWidget extends StatelessWidget {
           creationParamsCodec: const StandardMessageCodec(),
         );
       default:
-        throw new UnsupportedError("Unsupported platform view");
+        throw UnsupportedError("Unsupported platform view");
     }
   }
 }
