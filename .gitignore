@@ -49,3 +49,6 @@ app.*.map.json
 
 # node
 **/node_modules/
+
+# FVM Version Cache
+.fvm/

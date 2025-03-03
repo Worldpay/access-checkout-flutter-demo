@@ -1,4 +1,3 @@
-import 'package:access_checkout_flutter_demo/widgets/access_checkout_web_widget.dart';
 import 'package:flutter/material.dart';
 
 class WebSdkPage extends StatelessWidget {
