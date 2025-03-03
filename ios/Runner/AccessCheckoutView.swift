@@ -13,7 +13,7 @@ class AccessCheckoutView: NSObject, FlutterPlatformView {
     private var baseUrl: String
     private var checkoutId: String
     private var useCardValidation: Bool
-    
+
     private var controller: AccessCheckoutViewController
 
 
@@ -33,12 +33,12 @@ class AccessCheckoutView: NSObject, FlutterPlatformView {
             .accessBaseUrl(baseUrl)
             .checkoutId(checkoutId)
             .build()
-        
+
         let storyboard = UIStoryboard(name: "AccessCheckoutView", bundle: Bundle.main)
         controller = storyboard.instantiateViewController(withIdentifier:"ViewController") as! AccessCheckoutViewController
-     
+
         _view = controller.view!
-      
+
         super.init()
 
         methodChannel.setMethodCallHandler({
@@ -99,9 +99,13 @@ class AccessCheckoutView: NSObject, FlutterPlatformView {
                     case .failure(let error):
                         print(error)
                         self.methodChannel.invokeMethod("onSessionError", arguments: "Could not create session")
-
+                        
                     case .success(let sessions):
-                        let sessionData = sessions.mapValues{$0}
+                        var sessionData: [String: String] = [:]
+                        for (key, value) in sessions {
+                            let keyName = String(describing: key).uppercased()
+                            sessionData[keyName] = value
+                        }
                         self.methodChannel.invokeMethod("onSessionGenerated", arguments: sessionData)
                     }
                 }
@@ -133,26 +137,26 @@ extension AccessCheckoutView: AccessCheckoutCardValidationDelegate {
     func panValidChanged(isValid: Bool) {
         self.updateUIField(field: self.panInput, isValid: isValid)
         if(!isValid){
-            self.methodChannel.invokeMethod("OnValidationUpdated", arguments:false)
+            self.methodChannel.invokeMethod("onValidationUpdated", arguments:false)
         }
     }
 
     func expiryDateValidChanged(isValid: Bool) {
         self.updateUIField(field: self.expiryInput, isValid: isValid)
         if(!isValid){
-            self.methodChannel.invokeMethod("OnValidationUpdated", arguments:false)
+            self.methodChannel.invokeMethod("onValidationUpdated", arguments:false)
         }
     }
 
     func cvcValidChanged(isValid: Bool) {
         self.updateUIField(field: self.cvcInput, isValid: isValid)
         if(!isValid){
-            self.methodChannel.invokeMethod("OnValidationUpdated", arguments:false)
+            self.methodChannel.invokeMethod("onValidationUpdated", arguments:false)
         }
     }
 
     func validationSuccess() {
-        self.methodChannel.invokeMethod("OnValidationUpdated", arguments:true)
+        self.methodChannel.invokeMethod("onValidationUpdated", arguments:true)
 
     }
 

@@ -21,9 +21,6 @@ class AccessCheckoutFlutter {
 
         case "onSessionError":
           onError(call.arguments);
-
-        default:
-          print("Unknown Event: ${call.method}");
       }
     });
 

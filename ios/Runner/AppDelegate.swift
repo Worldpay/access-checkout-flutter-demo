@@ -1,7 +1,7 @@
 import Flutter
 import UIKit
 
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate {
     private var METHOD_CHANNEL_NAME = "com.worldpay.flutter/accesscheckout"
 
