@@ -73,7 +73,7 @@ Change in the `web_sdk_page.dart` file:
 Android requires TLS to communicate using the HTTP protocol. 
 For this demo we do not use TLS for the local webserver to avoid complications so we need to give permission for Android to communicate using HTTP protocol in clear text.
 
-1. Open the `access_checkout_flutter_web_sdk_demo/android/app/src/main/AndroidManifest.xml` file
+1. Open the `access_checkout_flutter_web_sdk_demo/android/app/src/profile/AndroidManifest.xml` file
 2. Add `android:usesCleartextTraffic="true"` to the `<application ..>` node
 
 #### 4. Running the application
