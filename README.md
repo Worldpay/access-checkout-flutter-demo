@@ -23,10 +23,20 @@ You will also need set up:
 - an [iOS simulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-ios-simulator) as well as
 - an [Android emulator](https://flutter.dev/docs/get-started/install/macos#set-up-the-android-emulator).
 
+## Preparing your local environment Using `fvm`
+
+We also recommended to use the [_fvm - flutter version
+manager_](https://fvm.app/documentation/getting-started/installation) to ensure compatible and consistent builds of this
+project.
+
+To do this *_First install or upgrade to the latest fvm. Follow these installation_ [
+_instructions_ ](https://fvm.app/documentation/getting-started/installation)*
 
 ## Changing the Checkout ID used by the application
 
-Change the Checkout ID in the `lib/screens/native_sdk_page.dart` and `web_sdk_page.dart` files.
+In order to configure the application to use your test credentials.
+Change the Checkout ID in the `lib/screens/native_sdk_page.dart` and/or `lib/screens/web_sdk_page.dart` files.
+To the credentials provided to you.
 
 ## Changing the URL of Access Checkout used by the application
 
@@ -52,13 +62,21 @@ Start an android emulator with a `minSdkVersion` of `26`
 #### 2. Preparing the Web SDK view
 
 Change in the `web_sdk_page.dart` file:
+
 - the iframeBaseUrl to `http://localhost:3000/form.html` so that the Web integration works correctly
-- refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a valid checkoutID
+- refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a
+  valid checkoutID
 
 #### 3. Running the application
 
+#### Using flutter
 ```shell
 flutter run
+```
+
+#### Using fvm
+```shell
+fvm flutter run
 ```
 
 ### Running on iOS
@@ -70,13 +88,20 @@ Start an ios simulator
 #### 2. Preparing the Web SDK view
 
 Change in the `web_sdk_page.dart` file:
+
 - the iframeBaseUrl to `http://10.0.2.2:3000/form.html` so that the Web integration works correctly
-- refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a valid checkoutID
+- refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a
+  valid checkoutID
 
 #### 3. Running the application
-
+#### Using flutter
 ```shell
 flutter run
+```
+
+### Using fvm
+```shell
+fvm flutter run
 ```
 
 ### Notes on the creation of the Podfile for iOS
