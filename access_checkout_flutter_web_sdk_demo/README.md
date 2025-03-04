@@ -64,11 +64,19 @@ Start an android emulator with a `minSdkVersion` of `26`
 
 Change in the `web_sdk_page.dart` file:
 
-- the iframeBaseUrl to `http://localhost:3000/form.html` so that the Web integration works correctly
+- the iframeBaseUrl to `http://10.0.2.2:3000/form.html` so that the Web integration works correctly
 - refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a
   valid checkoutID
 
-#### 3. Running the application
+#### 3. Give permission to the Android app to communicate with http://10.0.2.2:3000 using clear text HTTP
+
+Android requires TLS to communicate using the HTTP protocol. 
+For this demo we do not use TLS for the local webserver to avoid complications so we need to give permission for Android to communicate using HTTP protocol in clear text.
+
+1. Open the `access_checkout_flutter_web_sdk_demo/android/app/src/main/AndroidManifest.xml` file
+2. Add `android:usesCleartextTraffic="true"` to the `<application ..>` node
+
+#### 4. Running the application
 
 #### Using flutter
 
@@ -92,7 +100,7 @@ Start an ios simulator
 
 Change in the `web_sdk_page.dart` file:
 
-- the iframeBaseUrl to `http://10.0.2.2:3000/form.html` so that the Web integration works correctly
+- the iframeBaseUrl to `http://localhost:3000/form.html` so that the Web integration works correctly
 - refer to the `Changing the Checkout ID used by the application` section of this readme and change the checkoutId to a
   valid checkoutID
 

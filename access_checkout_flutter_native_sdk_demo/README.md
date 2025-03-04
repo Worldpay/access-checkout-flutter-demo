@@ -72,7 +72,16 @@ fvm flutter run
 
 Start an ios simulator
 
-#### 2. Running the application
+#### 2. Preparing the application
+
+```shell
+# Install Cocoapods pod dependencies
+cd ios
+pod install
+```
+
+
+#### 3. Running the application
 
 #### Using flutter
 
