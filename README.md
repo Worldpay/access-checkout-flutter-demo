@@ -79,9 +79,15 @@ Change in the `web_sdk_page.dart` file:
 flutter run
 ```
 
-### Podfile for iOS
+### Notes on the creation of the Podfile for iOS
 
 The `flutter create` command does not generate any `Podfile`.
 That file is needed and requires specific code for the `webview_flutter` package to be able to source the `webview_flutter_wkwebview` dependency.
 
-You can file [an example Podfile in the example application](https://github.com/flutter/packages/blob/main/packages/webview_flutter/webview_flutter/example/ios/Podfile) available in the `webview_flutter` package under the flutter repository:
+To create it for a brand new application:
+1. Run `flutter run` and choose an iOS destination
+2. You will see an error displayed in the terminal as no iOS development team is selected by default in the iOS project config
+3. Instructions in the terminal explain how to resolve it (you essentially need to select an Apple team so XCode can sign the app)
+4. Add any other dependencies in the `Podfile`, such as the AccessCheckoutSDK
+
+DO NOT first create manually the `Podfile` file and expect `flutter run` to add the additional code, that won't work.
