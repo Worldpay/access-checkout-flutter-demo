@@ -2,7 +2,8 @@
     <application
         android:label="access_checkout_flutter_web_sdk_demo"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:networkSecurityConfig="@xml/network_config">
         <activity
             android:name=".MainActivity"
             android:exported="true"
