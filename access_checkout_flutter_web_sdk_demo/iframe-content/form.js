@@ -63,7 +63,8 @@
     },
     function (error, checkout) {
       if (error) {
-        flutterWebView.postMessage(error);
+        // the error is sent to the Flutter layer using the Flutter postMessage mechanism
+        flutterJSChannel.postMessage(error);
         return;
       }
 
@@ -72,13 +73,13 @@
 
         checkout.generateSessionState(function (error, sessionState) {
           if (error) {
-            flutterWebView.postMessage(error);
+            // the error is sent to the Flutter layer using the Flutter postMessage mechanism
+            flutterJSChannel.postMessage(error);
             return;
           }
 
-          // session state for card details
-          flutterWebView.postMessage(sessionState)
-          // alert(sessionState);
+          // the session is sent to the Flutter layer using the Flutter postMessage mechanism
+          flutterJSChannel.postMessage(sessionState)
         });
       });
 

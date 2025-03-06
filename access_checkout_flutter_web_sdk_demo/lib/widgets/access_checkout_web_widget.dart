@@ -30,7 +30,7 @@ class _WebViewState extends State<AccessCheckoutWebWidget> {
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..addJavaScriptChannel(
-        'flutterWebView',
+        'flutterJSChannel',
         onMessageReceived: (dynamic message) {
           setState(() {
             sessionToken = message.message;
