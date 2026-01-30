@@ -18,7 +18,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
-            android:hint="Card number" />
+            android:hint="Card number"
+            android:textColor="@android:color/black"
+        />
 
         <ImageView
             android:id="@+id/brand_logo"
@@ -43,7 +45,9 @@
             android:ems="4"
             android:hint="Expiry date"
             android:imeOptions="actionDone|flagNoFullscreen"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="@android:color/black"
+        />
 
         <com.worldpay.access.checkout.ui.AccessCheckoutEditText
             android:id="@+id/cvc_input"
@@ -54,6 +58,8 @@
             android:ems="4"
             android:hint="CVC"
             android:imeOptions="actionDone|flagNoFullscreen"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="@android:color/black"
+        />
     </LinearLayout>
 </LinearLayout>
